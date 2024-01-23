@@ -11,8 +11,10 @@ SELECT * FROM `courses` WHERE `cfu` > 10;
 -- Selezionare tutti gli studenti che hanno più di 30 anni
 SELECT * FROM `students` WHERE YEAR(`date_of_birth`) < 1994;
 
+SELECT * FROM `students` WHERE DATEDIFF(YEAR, `date_of_birth`, GETDATE()) > 30;
+
 -- Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea
-SELECT * FROM `courses` WHERE `period` = 'I semestre';
+SELECT * FROM `courses` WHERE `period` = 'I semestre' AND `year` = 1;
 
 -- Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020
 SELECT * FROM `exams` WHERE `date` = '2020-01-19' AND HOUR(`hour`) > 14;
